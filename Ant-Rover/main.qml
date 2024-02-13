@@ -20,7 +20,7 @@ Window {
         anchors.left: gameWindow
 
         // Row 0: All Non-Traversable Labels
-        BoardTile { color:"blue"; traversable: 0;}
+        BoardTile { color:"green"; text: "  Ant\nRover"; traversable: 0;}
         BoardTile { color:"blue"; traversable: 0; text: "A"}
         BoardTile { color:"blue"; traversable: 0; text: "B"}
         BoardTile { color:"blue"; traversable: 0; text: "C"}
@@ -34,7 +34,7 @@ Window {
 
         // Row 1: First Tile is Label, Rest Are Traversable
         BoardTile { color:"blue"; traversable: 0; text: "1" }
-        BoardTile {  }
+        BoardTile { hasFinish: true }
         BoardTile {  }
         BoardTile {  }
         BoardTile {  }
@@ -90,7 +90,7 @@ Window {
         BoardTile {  }
         BoardTile {  }
         BoardTile {  }
-        BoardTile {  }
+        BoardTile { hasObstacle: true }
         BoardTile {  }
         BoardTile {  }
         BoardTile {  }
@@ -160,6 +160,6 @@ Window {
         BoardTile {  }
         BoardTile {  }
         BoardTile {  }
-        BoardTile { showSprite: true }
+        BoardTile { hasSprite: true }
     }
 }
