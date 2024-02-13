@@ -1,5 +1,11 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>BoardTile.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>antsprite.jpg</file>
+        <file>rocky.PNG</file>
+        <file>apple.PNG</file>
     </qresource>
 </RCC>
