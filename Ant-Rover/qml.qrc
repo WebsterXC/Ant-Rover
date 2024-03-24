@@ -2,6 +2,7 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>BoardTile.qml</file>
+        <file>movement.js</file>
     </qresource>
     <qresource prefix="/images">
         <file>antsprite.jpg</file>
