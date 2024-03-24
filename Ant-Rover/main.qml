@@ -5,28 +5,30 @@ import "movement.js" as Movement
 Window {
     id: gameWindow
     width: 890
-    height: 890
+    height: 930
     visible: true
     title: qsTr("Ant Rover")
     color: "darkgreen"
 
     Rectangle{
-        anchors.fill: parent
+        id: baseRect
+        width: 890
+        height: 890
         color: "black"
         focus: true
 
-        Keys.onUpPressed: { Movement.moveUp(tileImage) }
-        Keys.onDownPressed: { Movement.moveDown(tileImage) }
-        Keys.onRightPressed: { Movement.moveRight(tileImage) }
-        Keys.onLeftPressed: { Movement.moveLeft(tileImage) }
+        Keys.onUpPressed: { Movement.moveUp(tileImage); movesCountText.text = Movement.getInfo() }
+        Keys.onDownPressed: { Movement.moveDown(tileImage); movesCountText.text = Movement.getInfo() }
+        Keys.onRightPressed: { Movement.moveRight(tileImage); movesCountText.text = Movement.getInfo() }
+        Keys.onLeftPressed: { Movement.moveLeft(tileImage); movesCountText.text = Movement.getInfo() }
 
         Grid {
             id: gameBoard
             spacing: 1
             rows: 11
             columns: 11
-            anchors.top: gameWindow
-            anchors.left: gameWindow
+            anchors.top: baseRect
+            anchors.left: baseRect
 
             // Row 0: All Non-Traversable Labels
             BoardTile { color:"green"; text: "  Ant\nRover"; traversable: 0;}
@@ -182,6 +184,25 @@ Window {
             fillMode: Image.Stretch
             visible: true
             z: 0
+            transformOrigin: Item.Center;
+            rotation: 0;
         }
+    }
+
+    Rectangle{
+        id: scoreRect
+        x: 0
+        y: baseRect.height
+        width: gameWindow.width
+        height: 40
+        color: "gray"
+
+        Text{
+            id: movesCountText
+            text: qsTr("  Moves: 0" + "        Move History: ")
+            anchors.verticalCenter: parent
+            font.pointSize: 16
+        }
+
     }
 }
